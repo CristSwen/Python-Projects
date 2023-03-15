@@ -1,3 +1,4 @@
+#Parent class for school
 class School:
     schoolName = "East High"
     location = "Salt Lake City"
