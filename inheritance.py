@@ -6,6 +6,6 @@ class Company(Store):
     storeType = 'Grocery'
     affordability = 'expensive'
 
-class Product(store):
+class Product(Store):
     foodType = 'healthy'
     productAmount = 5000
