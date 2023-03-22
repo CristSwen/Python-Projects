@@ -19,3 +19,4 @@ class RentPayment(Rent):
 money = RentPayment()
 money.payRent("$1700")
 money.payment("$1700")
+#What will print is "Your rent this month is: $1700" and "You still have a balance of $1700 for rent this month"
