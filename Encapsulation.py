@@ -8,8 +8,8 @@ class Prot:
     def setPriv(self, private):
         self.privateVar = private
     
-num = Prot()
-num._protectedVar = 21
+num = Prot() #THis places the whole class within an object to be called upon
+num._protectedVar = 21 #This changes the variable defined under the function __init__
 num.getPriv()
 num.setPriv(12)
 print(num._protectedVar)
