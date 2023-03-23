@@ -69,6 +69,7 @@ class ParentWindow(Frame):
         source_files = os.listdir(source)
         #Runs through each filein the source directory
         for i in source_files:
+            #fileTime grabs the age of all the files in source_files. time gets the current date. delta is set to 0 time while delta2 is set to 24 hours
             fileTime = os.path.getmtime(source_files[i])
             time = datetime.datetime.now()
             delta = timedelta(
@@ -89,6 +90,7 @@ class ParentWindow(Frame):
                 hours = 0,
                 weeks = 0
             )
+            #if time minus fileTime is less than or greater than delta2 and greaters than or equal to delta it will add the files
             if time - fileTime <= delta2 and >= delta:
                 #moves each file from the source to the destination
                 shutil.move(source + '/' + i, destination)
