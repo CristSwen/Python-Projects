@@ -68,31 +68,15 @@ class ParentWindow(Frame):
         destination = self.destination_dir.get()
         #Gets a list of files in the source directory
         source_files = os.listdir(source)
+        #This gets the current time and subtracts 24 hours from it
+        time = datetime.datetime.now() - datetime.timedelta(hours=24)
         #Runs through each filein the source directory
         for i in source_files:
             #fileTime grabs the age of all the files in source_files. time gets the current date. delta is set to 0 time while delta2 is set to 24 hours
-            fileTime = os.path.getmtime(source_files[i])
-            time = datetime.datetime.now()
-            delta = timedelta(
-                days = 0,
-                seconds = 0,
-                microseconds = 0,
-                milliseconds = 0,
-                minutes = 0,
-                hours = 0,
-                weeks = 0
-            )
-            delta2 = timedelta(
-                days = 1,
-                seconds = 0,
-                microseconds = 0,
-                milliseconds = 0,
-                minutes = 0,
-                hours = 0,
-                weeks = 0
-            )
+            fileTime = os.path.getmtime(source + '/' + i)
+            fileTime2 = datetime.datetime.fromtimestamp(fileTime);
             #if time minus fileTime is less than or greater than delta2 and greaters than or equal to delta it will add the files
-            if time - fileTime <= delta2 and time >= delta:
+            if fileTime2 > time:
                 #moves each file from the source to the destination
                 shutil.move(source + '/' + i, destination)
                 print(i + ' was successfully transferred.')
