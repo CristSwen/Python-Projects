@@ -5,6 +5,7 @@ import os
 import shutil
 import datetime
 import time
+from datetime import timedelta
 
 
 
@@ -91,7 +92,7 @@ class ParentWindow(Frame):
                 weeks = 0
             )
             #if time minus fileTime is less than or greater than delta2 and greaters than or equal to delta it will add the files
-            if time - fileTime <= delta2 and >= delta:
+            if time - fileTime <= delta2 and time >= delta:
                 #moves each file from the source to the destination
                 shutil.move(source + '/' + i, destination)
                 print(i + ' was successfully transferred.')
